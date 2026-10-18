@@ -183,3 +183,9 @@ Antes de utilizar em produção, teste num projeto descartável:
 A implementação destina-se à API de plugins do IngeTrazo 0.5.8 e deve ser validada numa instalação real após alterações ao núcleo ou à API de extensões.
 
 Documentação de plugins do IngeTrazo: <https://github.com/ingelibre/ingetrazo/blob/main/docs/plugins.md>
+
+## Autor / Desenvolvedor
+Arquitetura, direção do produto, design do fluxo de trabalho e testes em situações reais: Carlos Martins.
+
+## Licença
+GLP-3.0 ou posterior. Consulte o ficheiro LICENSE.
