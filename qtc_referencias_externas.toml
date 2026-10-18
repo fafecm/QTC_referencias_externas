@@ -1,0 +1,23 @@
+# Manifesto para submissão ao catálogo ingetrazo-extensions.
+# Destino no catálogo: extensions/qtc_referencias_externas.toml
+
+id = "qtc_referencias_externas"
+version = "0.1.0"
+author = "fafecm"
+author_url = "https://github.com/fafecm"
+license = "GPL-3.0"
+repository = "https://github.com/fafecm/QTC_referencias_externas"
+download = "https://github.com/fafecm/QTC_referencias_externas/releases/download/V0.1.0/QTC_Referencias_externas.V0.1.0.zip"
+sha256 = "895ec9dec01ab0a55e12c6ced8e501a15f3e597471709eacb91f746b1e0b7a2f"
+ingetrazo = "0.5.8"
+tags = ["bim", "import-export", "productivity"]
+
+[name]
+es = "QTC Referencias externas"
+en = "QTC External References"
+pt = "QTC Referências externas"
+
+[summary]
+es = "Gestiona referencias externas IGZ: cargar, descargar, sincronizar, localizar y editar vínculos desde el proyecto central."
+en = "Manage external IGZ references: load, unload, synchronize, locate and edit linked models from the central project."
+pt = "Gere referências externas IGZ: carrega, descarrega, sincroniza, localiza e edita vínculos a partir do projeto central."
