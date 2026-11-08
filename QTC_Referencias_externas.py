@@ -700,17 +700,25 @@ def setup(app):
             return
         archive_path = Path(archive_name)
         output_dir = archive_path.parent
+
+        def inside(name):
+            """A file name from the manifest, kept inside the IGP's folder: an IGP
+            from someone else must not write anywhere else (``../``, absolute paths)."""
+            target = (output_dir / Path(str(name)).name).resolve()
+            if target.parent != output_dir.resolve() or not target.name:
+                raise ValueError(f'Nome de ficheiro inválido no IGP: {name!r}')
+            return target
         try:
             with zipfile.ZipFile(archive_path, 'r') as archive:
                 manifest = json.loads(archive.read('manifest.json').decode('utf-8'))
                 if manifest.get('format') != 'QTC_IGP':
                     raise ValueError('O ficheiro não é um projeto IGP QTC válido.')
-                files = [(manifest['project_entry'], output_dir / manifest['project_filename'])]
+                files = [(manifest['project_entry'], inside(manifest['project_filename']))]
                 references = {}
                 for item in manifest.get('references', []):
                     if not item.get('entry') or not item.get('restore_filename'):
                         continue
-                    target = output_dir / item['restore_filename']
+                    target = inside(item['restore_filename'])
                     files.append((item['entry'], target))
                     references[item.get('id')] = str(target)
                 existing = [target for _entry, target in files if target.exists()]
